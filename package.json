@@ -1,35 +1,45 @@
 {
   "name": "keyboardjs",
   "description": "A library for binding to keys and key combos without the pain of key codes and key combo conflicts.",
-  "version": "0.4.2",
+  "version": "0.4.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js | tspec",
+    "build": "browserify -g uglifyify -s keyboardJS ./index.js > ./dist/keyboard.min.js & browserify --debug -s keyboardJS ./index.js > ./dist/keyboard.js",
+    "build-docs": "jsdoc "
+  },
   "keywords": [
     "Key Binding, Keyboard, Key combos, Keyboard Shortcuts"
   ],
-  "maintainers": [
-    {
-      "name": "Robert Hurst",
-      "email": "RobertWHurst@gmail.com",
-      "web": "http://github.com/RobertWHurst"
-    }
-  ],
-  "demos": [
-    "http://robertwhurst.github.com/KeyboardJS/"
-  ],
+  "author": "Robert Hurst <robertwhurst@gmail.com>",
   "bugs": {
-    "web": "https://github.com/RobertWHurst/KeyboardJS/issues"
+    "url": "https://github.com/RobertWHurst/KeyboardJS/issues"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "git@github.com:RobertWHurst/KeyboardJS.git"
-    }
-  ],
-  "licenses": [
-    {
-      "name": "BSD License",
-      "url": "https://raw.github.com/RobertWHurst/KeyboardJS/master/license.txt"
-    }
-  ],
-  "homepage": "http://robertwhurst.github.com/KeyboardJS/",
-  "main": "keyboard.js"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:RobertWHurst/KeyboardJS.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "type-guard": "^0.2.1"
+  },
+  "devDependencies": {
+    "browserify": "^6.0.2",
+    "tap-spec": "^1.0.0",
+    "tape": "^3.0.0",
+    "uglifyify": "^2.5.0"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "iexplore/6..latest",
+      "chrome/4..latest",
+      "firefox/3..latest",
+      "safari/4..latest",
+      "opera/10..latest",
+      "iphone/6..latest",
+      "ipad/6..latest",
+      "android-browser/4..latest"
+    ]
+  }
 }
